@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/wyf/catkin_ws/src/orb_fast_livo/cmake-build-debug/devel/setup.sh

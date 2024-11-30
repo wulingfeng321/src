@@ -1,0 +1,14 @@
+orb slam：以左相机为坐标转换基准点，配置文件的转换矩阵是imu到相机
+        相机位姿topic:/orb_slam3/body_odom
+        相机图像topic：/camera/infra1/image_rect_raw
+
+
+
+
+
+
+
+
+fast lio：以imu为相机基准点，配置文件中的转换矩阵是雷达到imu
+        雷达位姿topic：/Odometry
+        雷达点云topic：/cloud_registered

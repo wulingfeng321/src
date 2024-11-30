@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/wyf/catkin_ws/src/orb_fast_livo/build/devel/setup.sh

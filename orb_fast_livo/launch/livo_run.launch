@@ -1,0 +1,52 @@
+<launch>
+    <param name="use_sim_time" value="false" />
+    <node pkg="orb_fast_livo" type="main" name="main" output="screen" />
+
+    <node name="orb_slam3" pkg="orb_slam3_ros" type="ros_stereo">
+
+        <remap from="/camera/left/image_raw" to="/camera/infra1/image_rect_raw" />
+        <remap from="/camera/right/image_raw" to="/camera/infra2/image_rect_raw" />
+<!--         <remap from="/imu" to="/camera/imu" /> -->
+
+
+        <param name="voc_file" type="string" value="$(find orb_slam3_ros)/orb_slam3/Vocabulary/ORBvoc.txt.bin" />
+        <param name="settings_file" type="string" value="/home/wulingfeng/catkin_ws/src/orb_slam3_ros/config/Stereo/RealSense_D435i.yaml" />
+
+
+        <param name="world_frame_id" type="string" value="camera_world" />
+        <param name="cam_frame_id" type="string" value="camera" />
+        <param name="imu_frame_id" type="string" value="imu" />
+        <param name="enable_pangolin" type="bool" value="true" />
+    </node>
+<!--     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find orb_slam3_ros)/config/orb_slam3_with_imu.rviz" output="screen" /> -->
+
+    <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="trajectory_server_orb_slam3" output="screen" ns="orb_slam3_ros">
+        <param name="/target_frame_name" value="/camera_world" />
+        <param name="/source_frame_name" value="/imu" />
+        <param name="/trajectory_update_rate" value="20.0" />
+        <param name="/trajectory_publish_rate" value="20.0" />
+    </node>
+    <!-- 参数，用于确定是否启动 RViz，默认值为 true -->
+    <arg name="rviz" default="true" />
+
+    <!-- 从指定的 YAML 配置文件加载参数 -->
+    <rosparam command="load" file="$(find fast_lio)/config/mid360.yaml" />
+
+    <!-- 设置 Fast LIO 映射的各种参数 -->
+    <param name="feature_extract_enable" type="bool" value="0"/>  <!-- 禁用特征提取 -->
+    <param name="point_filter_num" type="int" value="3"/>        <!-- 设置点过滤器数量 -->
+    <param name="max_iteration" type="int" value="3" />          <!-- 设置优化的最大迭代次数 -->
+    <param name="filter_size_surf" type="double" value="0.5" />  <!-- 设置表面滤波器大小 -->
+    <param name="filter_size_map" type="double" value="0.5" />   <!-- 设置地图滤波器大小 -->
+    <param name="cube_side_length" type="double" value="1000" />  <!-- 设置映射立方体的边长 -->
+    <param name="runtime_pos_log_enable" type="bool" value="0" />  <!-- 禁用运行时位置日志记录 -->
+
+    <!-- 启动 Fast LIO 映射节点 -->
+    <node pkg="fast_lio" type="fastlio_mapping" name="laserMapping" />
+    <!-- <node pkg="rosbag" type="play" name="rosbag_play" args="/home/wulingfeng/catkin_ws/datas/bags/all_data.bag " /> -->
+    <!-- 如果参数 rviz 为 true，则启动 RViz -->
+    <group if="$(arg rviz)">
+        <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d /home/wulingfeng/catkin_ws/src/orb_fast_livo/launch/aaa.rviz" />
+    </group>
+
+</launch>
