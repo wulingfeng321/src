@@ -1,5 +1,4 @@
 <launch>
-    <param name="place_out" value="true" />
-    <include file="$(find livox_ros_driver2)/launch_ros1/msg_MID360.launch" />
+    <include file="$(find livox_ros_driver2)/launch_ROS1/msg_MID360.launch" />
     <include file="$(find orb_fast_livo)/launch/livo_run.launch" />
 </launch>

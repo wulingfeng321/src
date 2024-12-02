@@ -1,0 +1,8 @@
+prefix=/home/wulingfeng/catkin_ws/src/build/devel
+
+Name: orb_fast_livo
+Description: Description of orb_fast_livo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: cv_bridge roscpp sensor_msgs std_msgs
