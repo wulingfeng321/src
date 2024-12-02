@@ -14,7 +14,7 @@ EKF::EKF( ros::NodeHandle& nh) : nh_(nh) {
     F = MatrixXd::Identity(9, 9);
 
     // 初始化计时相关变量
-    start_time = high_resolution_clock::now();
+    start_time = high_resolution_clock::now();//high_resolution_clock::now()返回当前函数运行时间戳
     prediction_count = 0;
 
     // 初始化发布器
@@ -80,7 +80,6 @@ void EKF::predict(const VectorXd &imu_data, double dt) {
     // 更新协方差预测
     P = F * P * F.transpose() + Q;
 }
-
 
 void EKF::broadcastTransform() {
     // 创建变换消息

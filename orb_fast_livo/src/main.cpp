@@ -29,11 +29,11 @@ int main(int argc, char** argv) {
     ROS_INFO("INIT SYNC");
     ROS_INFO("INIT GRAB");
     Grabber grb;
-    ros::Subscriber sub_imu = nh.subscribe("/livox/imu", 100, &Grabber::GrabImu, &grb);
-    ros::Subscriber sub_lido = nh.subscribe("/Odometry", 100, &Grabber::GrabLid, &grb);
-    ros::Subscriber sub_camo = nh.subscribe("/orb_slam3/camera_pose", 100, &Grabber::GrabCam, &grb);
-    ros::Subscriber sub_img = nh.subscribe("/camera/infra1/image_rect_raw", 100, &Grabber::GrabImg, &grb);
-    //ros::Subscriber sub_point = nh.subscribe("/cloud_registered", 100, &Grabber::GrabCam, &grb);
-    std::thread sync_thread(&Grabber::Sync, &grb, std::ref(ekf));
-    ros::spin();
+    ros::Subscriber sub_imu = nh.subscribe("/livox/imu", 100, &Grabber::GrabImu, &grb);//imu
+    ros::Subscriber sub_lido = nh.subscribe("/Odometry", 100, &Grabber::GrabLid, &grb);//lidar
+    ros::Subscriber sub_camo = nh.subscribe("/orb_slam3/camera_pose", 100, &Grabber::GrabCam, &grb);//camera pose
+    ros::Subscriber sub_img = nh.subscribe("/camera/infra1/image_rect_raw", 100, &Grabber::GrabImg, &grb);//camera image
+    //ros::Subscriber sub_point = nh.subscribe("/cloud_registered", 100, &Grabber::GrabCam, &grb);// point cloud
+    std::thread sync_thread(&Grabber::Sync, &grb, std::ref(ekf));//时间同步
+    ros::spin();//阻塞
 }

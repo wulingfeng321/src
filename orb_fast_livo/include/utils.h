@@ -14,7 +14,7 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer> rgbVis(pcl::PointCloud<pcl:
 class Transformer{
 public:
     Transformer() {
-        // 相机坐标转化为雷达坐标平移向量
+        // 相机坐标转化为雷达坐标平移向量,Eigen::Vector3d:3维向量
         Eigen::Vector3d L2CT(0.03296, -0.072, -0.054);
         Eigen::Vector3d C2LT(0.03296, -0.054, -0.072);
         // rgb外参

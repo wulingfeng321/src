@@ -11,12 +11,13 @@ std::mutex m;
 
 void Grabber::Sync(EKF& ekf)
 {
-    const double maxTimeDiff = 0.1;
+    const double maxTimeDiff = 0.1;// 最大时间差
     std::cout << std::fixed << std::setprecision(8);
 
     while(true)
     {
         double tLid = 0, tCam = 0;
+        // 雷达相机位姿时间同步
         if (!mLidBuf.empty()&&/*!mCamBuf.empty()&&*/!mImuBuf.empty())
         {
             m.lock();
@@ -84,7 +85,7 @@ void Grabber::Sync(EKF& ekf)
                         delta_t = currentTime - previousTime;
                         // std::cout << "imu时间差:" << delta_t << std::endl;
 
-                        sensor_msgs::ImuConstPtr imu_data = mImuBuf.front();
+                        sensor_msgs::ImuConstPtr imu_data = mImuBuf.front();// 读取imu数据
                         imu <<  imu_data->linear_acceleration.x,
                                     imu_data->linear_acceleration.y,
                                     imu_data->linear_acceleration.z,
@@ -119,7 +120,7 @@ void Grabber::Sync(EKF& ekf)
     }
 }
 
-// imu获取器
+// 雷达数据压入缓冲区
 void Grabber::GrabLid(const nav_msgs::OdometryPtr &lid_msg)
 {
     m.lock();
@@ -127,7 +128,7 @@ void Grabber::GrabLid(const nav_msgs::OdometryPtr &lid_msg)
     m.unlock();
 
 }
-// imu获取器
+// 相机数据压入缓冲区
 void Grabber::GrabCam(const geometry_msgs::PoseStampedPtr &cam_msg)
 {
     m.lock();
@@ -136,7 +137,7 @@ void Grabber::GrabCam(const geometry_msgs::PoseStampedPtr &cam_msg)
 
 }
 
-// imu获取器
+// imu数据压入缓冲区
 void Grabber::GrabImu(const sensor_msgs::ImuConstPtr &imu_msg)
 {
     m.lock();
@@ -145,7 +146,7 @@ void Grabber::GrabImu(const sensor_msgs::ImuConstPtr &imu_msg)
 
 }
 
-// imu获取器
+// 图像数据压入缓冲区
 void Grabber::GrabImg(const sensor_msgs::ImageConstPtr &img_msg)
 {
     m.lock();
@@ -153,6 +154,9 @@ void Grabber::GrabImg(const sensor_msgs::ImageConstPtr &img_msg)
     m.unlock();
 
 }
+
+// Method to convert ROS image message to OpenCV Mat
+//将 ROS 图像消息转换为 OpenCV Mat
 cv::Mat Grabber::GetImg(const sensor_msgs::ImageConstPtr &img_msg) {
     // Copy the ros image message to cv::Mat.
     cv_bridge::CvImageConstPtr cv_ptr;
