@@ -12,6 +12,9 @@
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 #include <nav_msgs/Path.h>
 #include <geometry_msgs/PoseStamped.h>
+#include <std_msgs/String.h>
+#include <string>
+#include <sstream>
 
 using namespace Eigen;
 using namespace std;
@@ -46,7 +49,10 @@ private:
     int prediction_count;
     ros::NodeHandle nh_;                       // ROS节点句柄
     ros::Publisher pose_pub_;                  // ROS发布器
+    ros::Publisher place_info;                  // ROS发布器
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_; // TF广播器
+    std_msgs::String msg_out;                   // 发布的状态消息
+    std::string place_information;                           // 状态信息字符串
     // Function to update the state transition matrix
     void updateF(double dt);
 };

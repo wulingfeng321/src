@@ -20,6 +20,8 @@ EKF::EKF( ros::NodeHandle& nh) : nh_(nh) {
     // 初始化发布器
     pose_pub_ = nh_.advertise<geometry_msgs::PoseStamped>("odom", 10000);
     tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(); // 创建 TF 广播器
+    //初始化发布器，发布位置和姿态用于串口通信
+    place_info = nh_.advertise<std_msgs::String>("ekf_info", 1000);
 }
 void EKF::publishPose() {
     // 创建 PoseStamped 消息
@@ -119,6 +121,11 @@ void EKF::updateF(double dt) {
          0, 0, 0, 0, 0, 0, 0, 0, 1;
 }
 void EKF::update(nav_msgs::Odometry::ConstPtr &lid_msg) {
+
+    //创建发布者，发布位置和姿态
+    publishPose();
+
+
     // 观测值：位置和欧拉角姿态
     VectorXd z(6);
     z.head(3) << lid_msg->pose.pose.position.x,
@@ -155,6 +162,13 @@ void EKF::update(nav_msgs::Odometry::ConstPtr &lid_msg) {
     P = (MatrixXd::Identity(9, 9) - K * H) * P;
 
     cout << "更新后的状态：" << x_hat.head(3).transpose() << " " << x_hat.segment(6, 3).transpose() << endl;
+
+    //将状态信息转换为字符串并发布
+    std::stringstream ss;
+    ss << "位置：" << x_hat.head(3).transpose() << " 姿态：" << x_hat.segment(6, 3).transpose();
+    place_information = ss.str();
+    msg_out.data = place_information;
+    place_info.publish(msg_out);//发布位置和姿态信息
 }
 
 void EKF::printState() const {
