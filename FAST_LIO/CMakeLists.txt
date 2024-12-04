@@ -62,13 +62,17 @@ find_package(PCL 1.8 REQUIRED)
 
 message(Eigen: ${EIGEN3_INCLUDE_DIR})
 
+
 include_directories(
-	${catkin_INCLUDE_DIRS} 
+  ${catkin_INCLUDE_DIRS} 
   ${EIGEN3_INCLUDE_DIR}
   ${PCL_INCLUDE_DIRS}
   ${PYTHON_INCLUDE_DIRS}
+  ${GTSAM_INCLUDE_DIR}
+  ${OpenCV_INCLUDE_DIRS}
+  ${CATKIN_DEVEL_PREFIX}/include
   include)
-
+  
 add_message_files(
   FILES
   Pose6D.msg

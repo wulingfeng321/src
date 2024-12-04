@@ -14,6 +14,13 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
 )
 
+#描述包信息,解决不生成devel文件夹下包目录的问题,放在executable之前！！！
+catkin_package(
+  INCLUDE_DIRS include
+  LIBRARIES usart_send
+  CATKIN_DEPENDS roscpp rospy serial std_msgs
+)
+
 # 生成可执行文件
 add_executable(place_pub src/place_pub.cpp)
 # 链接库

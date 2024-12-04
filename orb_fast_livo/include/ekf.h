@@ -49,8 +49,8 @@ private:
     int prediction_count;
     ros::NodeHandle nh_;                       // ROS节点句柄
     ros::Publisher pose_pub_;                  // ROS发布器
-    ros::Publisher place_info;                  // ROS发布器
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_; // TF广播器
+    ros::Publisher place_info;                  // 坐标信息发布器
     std_msgs::String msg_out;                   // 发布的状态消息
     std::string place_information;                           // 状态信息字符串
     // Function to update the state transition matrix
