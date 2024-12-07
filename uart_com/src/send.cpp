@@ -1,24 +1,53 @@
 //从ros话题中读取数据，并输出到串口中
 #include<ros/ros.h>
-#include<serial/serial.h>
 #include<std_msgs/String.h>
 #include<iostream>
 #include<string>
 #include<sstream>
+#include<serial/serial.h>
+#include"ros_32.h"
 
-//实例化一个serial类
-serial::Serial ser;
 
-//函数功能：将数据经由串口发送出去
-//入口参数1：[serial::Serial &ser]：     串口类名称
-//入口参数2：[std::string &serial_msg]:  要通过串口发送出去的字符串
-int serial_write(serial::Serial &ser, std::string &serial_msg);
+//主函数
+int main(int argc, char** argv){
+    //初始化节点
+    ros::init(argc, argv, "uart_node");
+    //创建节点句柄
+    ros::NodeHandle uart;
 
-//函数功能：将从串口接收到的数据保存到数组中
-//入口参数1：[serial::Serial &ser]：     串口类名称
-//入口参数2：[std::string &serial_msg]:  从串口读取的字符串
-int serial_read(serial::Serial &ser, std::string &serial_msg);
 
+    //串口相关设置
+    //创建串口对象
+    boost::asio::io_service io_service;//创建io_service对象
+    boost::asio::serial_port coord_io(io_service, "/dev/ttyUSB0");//创建串口对象coord_io，并指定串口名称为/dev/ttyUSB0
+
+    //初始化串口
+    serialInit(coord_io);//初始化串口coord_io
+
+    //打开串口
+    serialOpen(coord_io);//打开串口coord_io
+
+    //检测串口是否打开
+    if(!serialIsOpen(coord_io)){
+        ROS_ERROR("coord_io 启动失败！");
+        return -1;
+    }
+    else{
+        ROS_INFO("coord_io 启动成功！");
+    }
+
+
+    //ros
+    ros::Rate loop_rate(50); //指定循环频率50 
+    while(ros::ok()){
+        //订阅者创建
+        //订阅place_info话题，包含机器人当前坐标，姿态
+
+
+}
+
+
+/*
 //回调函数功能：将从串口接收到的数据保存到字符串中
 //入口参数1：[const std_msgs::String::ConstPtr& msg]：  订阅的消息
 void send_into_ttl(const std_msgs::String::ConstPtr& msg);
@@ -101,4 +130,4 @@ int serial_write(serial::Serial &ser, std::string &serial_msg)
 {
     ser.write(serial_msg);
     return 0;
-}
+}*/
