@@ -1,17 +1,14 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(uart_com)
 
-## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
-
-## Find catkin macros and libraries
-## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
-## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
-  serial
   std_msgs
+)
+find_package(Boost REQUIRED COMPONENTS 
+  system 
+  thread
 )
 
 #描述包信息,解决不生成devel文件夹下包目录的问题,放在executable之前！！！
@@ -20,7 +17,23 @@ catkin_package(
   LIBRARIES uart_com
   CATKIN_DEPENDS roscpp rospy serial std_msgs
 )
+include_directories(
+    ${catkin_INCLUDE_DIRS}  
+    ${CMAKE_SOURCE_DIR}
+    include
+)
 
+add_executable(main
+  src/main.cpp
+  src/ros_32.cpp
+)
+
+target_link_libraries(
+  main
+  ${catkin_LIBRARIES}
+  ${Boost_LIBRARIES}
+  pthread
+)
 
 
 ## System dependencies are found with CMake's conventions
