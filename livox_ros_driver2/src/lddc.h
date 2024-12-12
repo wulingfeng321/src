@@ -22,8 +22,8 @@
 // SOFTWARE.
 //
 
-#ifndef livox_ros_driver2_LDDC_H_
-#define livox_ros_driver2_LDDC_H_
+#ifndef LIVOX_ROS_DRIVER2_LDDC_H_
+#define LIVOX_ROS_DRIVER2_LDDC_H_
 
 #include "include/livox_ros_driver2.h"
 
@@ -160,4 +160,4 @@ class Lddc final {
 
 }  // namespace livox_ros
 
-#endif // livox_ros_driver2_LDDC_H_
+#endif // LIVOX_ROS_DRIVER2_LDDC_H_

@@ -22,8 +22,8 @@
 // SOFTWARE.
 //
 
-#ifndef livox_ros_driver2_PARSE_CFG_FILE_H_
-#define livox_ros_driver2_PARSE_CFG_FILE_H_
+#ifndef LIVOX_ROS_DRIVER_PARSE_CFG_FILE_H_
+#define LIVOX_ROS_DRIVER_PARSE_CFG_FILE_H_
 
 #include "../comm/comm.h"
 
@@ -49,4 +49,4 @@ class ParseCfgFile {
 
 } // namespace livox_ros
 
-#endif // livox_ros_driver2_PARSE_CFG_FILE_H_
+#endif // LIVOX_ROS_DRIVER_PARSE_CFG_FILE_H_

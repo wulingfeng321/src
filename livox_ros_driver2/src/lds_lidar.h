@@ -24,8 +24,8 @@
 
 /** Livox LiDAR data source, data from dependent lidar */
 
-#ifndef livox_ros_driver2_LDS_LIDAR_H_
-#define livox_ros_driver2_LDS_LIDAR_H_
+#ifndef LIVOX_ROS_DRIVER_LDS_LIDAR_H_
+#define LIVOX_ROS_DRIVER_LDS_LIDAR_H_
 
 #include <memory>
 #include <mutex>
@@ -92,4 +92,4 @@ class LdsLidar final : public Lds {
 
 }  // namespace livox_ros
 
-#endif // livox_ros_driver2_LDS_LIDAR_H_
+#endif // LIVOX_ROS_DRIVER_LDS_LIDAR_H_

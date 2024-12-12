@@ -22,8 +22,8 @@
 // SOFTWARE.
 //
 
-#ifndef livox_ros_driver2_CACHE_INDEX_H_
-#define livox_ros_driver2_CACHE_INDEX_H_
+#ifndef LIVOX_ROS_DRIVER_CACHE_INDEX_H_
+#define LIVOX_ROS_DRIVER_CACHE_INDEX_H_
 
 #include <mutex>
 #include <array>
@@ -51,4 +51,4 @@ class CacheIndex {
 
 } // namespace livox_ros
 
-# endif // livox_ros_driver2_CACHE_INDEX_H_
+# endif // LIVOX_ROS_DRIVER_CACHE_INDEX_H_

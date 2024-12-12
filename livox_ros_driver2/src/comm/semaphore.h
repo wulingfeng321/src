@@ -22,8 +22,8 @@
 // SOFTWARE.
 //
 
-#ifndef livox_ros_driver2_SEMAPHORE_H_
-#define livox_ros_driver2_SEMAPHORE_H_
+#ifndef LIVOX_ROS_DRIVER_SEMAPHORE_H_
+#define LIVOX_ROS_DRIVER_SEMAPHORE_H_
 
 #include <mutex>
 #include <condition_variable>
@@ -48,4 +48,4 @@ class Semaphore {
 
 } // namespace livox_ros
 
-#endif // livox_ros_driver2_SEMAPHORE_H_
+#endif // LIVOX_ROS_DRIVER_SEMAPHORE_H_

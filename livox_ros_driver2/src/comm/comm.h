@@ -22,8 +22,8 @@
 // SOFTWARE.
 //
 
-#ifndef livox_ros_driver2_COMM_H_
-#define livox_ros_driver2_COMM_H_
+#ifndef LIVOX_ROS_DRIVER2_COMM_H_
+#define LIVOX_ROS_DRIVER2_COMM_H_
 
 #include <math.h>
 #include <stdint.h>
@@ -301,4 +301,4 @@ std::string ReplacePeriodByUnderline(std::string str);
 
 } // namespace livox_ros
 
-#endif // livox_ros_driver2_COMM_H_
+#endif // LIVOX_ROS_DRIVER2_COMM_H_

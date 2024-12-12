@@ -22,8 +22,8 @@
 // SOFTWARE.
 //
 
-#ifndef livox_ros_driver2_LIDAR_COMMON_CALLBACK_H_
-#define livox_ros_driver2_LIDAR_COMMON_CALLBACK_H_	
+#ifndef LIVOX_ROS_DRIVER_LIDAR_COMMON_CALLBACK_H_
+#define LIVOX_ROS_DRIVER_LIDAR_COMMON_CALLBACK_H_	
 
 #include "comm/comm.h"
 
@@ -37,4 +37,4 @@ class LidarCommonCallback {
 
 } // namespace livox_ros
 
-#endif // livox_ros_driver2_LIDAR_COMMON_CALLBACK_H_
+#endif // LIVOX_ROS_DRIVER_LIDAR_COMMON_CALLBACK_H_

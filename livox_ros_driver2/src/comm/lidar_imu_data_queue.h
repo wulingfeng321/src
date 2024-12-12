@@ -22,8 +22,8 @@
 // SOFTWARE.
 //
 
-#ifndef livox_ros_driver2_LIDAR_IMU_DATA_QUEUE_H_
-#define livox_ros_driver2_LIDAR_IMU_DATA_QUEUE_H_
+#ifndef LIVOX_ROS_DRIVER_LIDAR_IMU_DATA_QUEUE_H_
+#define LIVOX_ROS_DRIVER_LIDAR_IMU_DATA_QUEUE_H_
 
 #include <list>
 #include <mutex>
@@ -73,5 +73,5 @@ class LidarImuDataQueue {
 
 } // namespace
 
-#endif // livox_ros_driver2_LIDAR_IMU_DATA_QUEUE_H_
+#endif // LIVOX_ROS_DRIVER_LIDAR_IMU_DATA_QUEUE_H_
 

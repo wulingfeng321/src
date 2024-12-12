@@ -22,8 +22,8 @@
 // SOFTWARE.
 //
 
-#ifndef livox_ros_driver2_LDQ_H_
-#define livox_ros_driver2_LDQ_H_
+#ifndef LIVOX_ROS_DRIVER_LDQ_H_
+#define LIVOX_ROS_DRIVER_LDQ_H_
 
 #include <stdint.h>
 #include <vector>
@@ -63,4 +63,4 @@ uint32_t QueuePushAny(LidarDataQueue *queue, uint8_t *data, const uint64_t base_
 
 }  // namespace livox_ros
 
-#endif // livox_ros_driver2_LDQ_H_
+#endif // LIVOX_ROS_DRIVER_LDQ_H_

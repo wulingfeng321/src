@@ -23,13 +23,12 @@ include_directories(
     include
 )
 
-add_executable(main
-  src/main.cpp
+add_executable(send
   src/ros_32.cpp
+  src/send.cpp
 )
 
-target_link_libraries(
-  main
+target_link_libraries(send
   ${catkin_LIBRARIES}
   ${Boost_LIBRARIES}
   pthread

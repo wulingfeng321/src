@@ -58,7 +58,7 @@ if [ $ROS_VERSION = ${VERSION_ROS1} ]; then
     catkin_make -DROS_EDITION=${VERSION_ROS1} -j4
 elif [ $ROS_VERSION = ${VERSION_ROS2} ]; then
     cd ../../
-    colcon build -j4 --cmake-args -DROS_EDITION=${VERSION_ROS2} -DHUMBLE_ROS=${ROS_HUMBLE}
+    colcon build --cmake-args -DROS_EDITION=${VERSION_ROS2} -DHUMBLE_ROS=${ROS_HUMBLE} -j4
 fi
 popd > /dev/null
 

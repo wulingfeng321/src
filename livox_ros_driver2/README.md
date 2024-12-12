@@ -127,7 +127,7 @@ Launch files of ROS are in the "ws_livox/src/livox_ros_driver2/launch_ROS1" dire
 
 ### 3.2 Livox ros driver 2 internal main parameter configuration instructions
 
-All internal parameters of livox_ros_driver2 are in the launch file. Below are detailed descriptions of the three commonly used parameters :
+All internal parameters of Livox_ros_driver2 are in the launch file. Below are detailed descriptions of the three commonly used parameters :
 
 | Parameter    | Detailed description                                         | Default |
 | ------------ | ------------------------------------------------------------ | ------- |
@@ -139,7 +139,7 @@ All internal parameters of livox_ros_driver2 are in the launch file. Below are d
 
   Other parameters not mentioned in this table are not suggested to be changed unless fully understood.
 
-&ensp;&ensp;&ensp;&ensp;***livox_ros_driver2 pointcloud data detailed description :***
+&ensp;&ensp;&ensp;&ensp;***Livox_ros_driver2 pointcloud data detailed description :***
 
 1. Livox pointcloud2 (PointXYZRTLT) point cloud format, as follows :
 

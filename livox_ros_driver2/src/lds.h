@@ -24,8 +24,8 @@
 
 // livox lidar data source
 
-#ifndef livox_ros_driver2_LDS_H_
-#define livox_ros_driver2_LDS_H_
+#ifndef LIVOX_ROS_DRIVER_LDS_H_
+#define LIVOX_ROS_DRIVER_LDS_H_
 
 #include <map>
 
@@ -80,4 +80,4 @@ class Lds {
 
 }  // namespace livox_ros
 
-#endif // livox_ros_driver2_LDS_H_
+#endif // LIVOX_ROS_DRIVER_LDS_H_

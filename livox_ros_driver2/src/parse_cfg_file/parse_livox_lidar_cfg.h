@@ -22,8 +22,8 @@
 // SOFTWARE.
 //
 
-#ifndef livox_ros_driver2_LIVOX_LIDAR_CFG_PARSER_H_
-#define livox_ros_driver2_LIVOX_LIDAR_CFG_PARSER_H_
+#ifndef LIVOX_ROS_DRIVER_LIVOX_LIDAR_CFG_PARSER_H_
+#define LIVOX_ROS_DRIVER_LIVOX_LIDAR_CFG_PARSER_H_
 
 #include "comm/comm.h"
 #include "livox_lidar_def.h"
@@ -55,4 +55,4 @@ class LivoxLidarConfigParser {
 
 } // namespace livox_ros
 
-#endif // livox_ros_driver2_LIVOX_LIDAR_CFG_PARSER_H_
+#endif // LIVOX_ROS_DRIVER_LIVOX_LIDAR_CFG_PARSER_H_

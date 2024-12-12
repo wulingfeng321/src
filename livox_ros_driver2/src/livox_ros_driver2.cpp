@@ -48,7 +48,7 @@ int main(int argc, char **argv) {
   // ros::NodeHandle livox_node;
   livox_ros::DriverNode livox_node;
 
-  DRIVER_INFO(livox_node, "Livox Ros Driver2 Version: %s", livox_ros_driver2_VERSION_STRING);
+  DRIVER_INFO(livox_node, "Livox Ros Driver2 Version: %s", LIVOX_ROS_DRIVER2_VERSION_STRING);
 
   /** Init default system parameter */
   int xfer_format = kPointCloud2Msg;
@@ -118,7 +118,7 @@ namespace livox_ros
 DriverNode::DriverNode(const rclcpp::NodeOptions & node_options)
 : Node("livox_driver_node", node_options)
 {
-  DRIVER_INFO(*this, "Livox Ros Driver2 Version: %s", livox_ros_driver2_VERSION_STRING);
+  DRIVER_INFO(*this, "Livox Ros Driver2 Version: %s", LIVOX_ROS_DRIVER2_VERSION_STRING);
 
   /** Init default system parameter */
   int xfer_format = kPointCloud2Msg;

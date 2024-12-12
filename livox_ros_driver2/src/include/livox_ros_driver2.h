@@ -22,19 +22,19 @@
 // SOFTWARE.
 //
 
-#ifndef livox_ros_driver2_INClUDE_H_
-#define livox_ros_driver2_INClUDE_H_
+#ifndef LIVOX_ROS_DRIVER2_INClUDE_H_
+#define LIVOX_ROS_DRIVER2_INClUDE_H_
 
-#define livox_ros_driver2_VER_MAJOR 1
-#define livox_ros_driver2_VER_MINOR 2
-#define livox_ros_driver2_VER_PATCH 4
+#define LIVOX_ROS_DRIVER2_VER_MAJOR 1
+#define LIVOX_ROS_DRIVER2_VER_MINOR 2
+#define LIVOX_ROS_DRIVER2_VER_PATCH 4
 
 #define GET_STRING(n) GET_STRING_DIRECT(n)
 #define GET_STRING_DIRECT(n) #n
 
-#define livox_ros_driver2_VERSION_STRING                      \
-  GET_STRING(livox_ros_driver2_VER_MAJOR)                     \
-  "." GET_STRING(livox_ros_driver2_VER_MINOR) "." GET_STRING( \
-      livox_ros_driver2_VER_PATCH)
+#define LIVOX_ROS_DRIVER2_VERSION_STRING                      \
+  GET_STRING(LIVOX_ROS_DRIVER2_VER_MAJOR)                     \
+  "." GET_STRING(LIVOX_ROS_DRIVER2_VER_MINOR) "." GET_STRING( \
+      LIVOX_ROS_DRIVER2_VER_PATCH)
 
-#endif  // livox_ros_driver2_INClUDE_H_
+#endif  // LIVOX_ROS_DRIVER2_INClUDE_H_
